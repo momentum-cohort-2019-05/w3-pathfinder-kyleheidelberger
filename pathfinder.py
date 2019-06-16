@@ -30,16 +30,8 @@ def read_line_of_ints(text):
 def split_line(line):
     return line.split()
 
-def draw_grayscale_gradient(filename, width, height):
-    image = Image.new(mode='L', size=(width, height))
-    for x in range (width):
-        for y in range (height):
-            image.putpixel((x, y), (int(x / width * 255),))
-    image.save(filename)
-
-
 if __name__ == "__main__":
     elevations = read_file_into_ints('elevation_small.txt')
     e_map = ElevationMap(elevations)
     
-    draw_grayscale_gradient('map.png', 600, 600)
+    e_map.draw_grayscale_gradient('map.png', 600, 600)
